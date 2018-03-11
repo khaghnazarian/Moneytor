@@ -9,6 +9,6 @@ export class AppComponent {
   title = 'Moneytor!';
 
   onButtonClick() {
-      this.title = 'Hello from Moneytor Application!';
+      this.title = 'Coming Soon!';
   }
 }

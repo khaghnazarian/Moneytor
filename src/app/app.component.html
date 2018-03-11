@@ -1,3 +1,10 @@
-<h1>{{title}}</h1>
+<app-nav></app-nav>
+<div class="container">
+  <div class="starter-template">
+    <h1>{{title}}</h1>
+    <p class="lead">A better way to Monitor your Money.</p>
+    <button kendoButton (click)="onButtonClick()" [primary]="true">Let's Start</button>
+  </div>
+</div>
+<app-footer></app-footer>
 
-<button kendoButton (click)="onButtonClick()" [primary]="true">Change Title</button>
