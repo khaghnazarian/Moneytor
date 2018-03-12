@@ -9,6 +9,7 @@ import { Observable } from 'rxjs/Observable';
 import { map } from 'rxjs/operators/map';
 import { filter } from 'rxjs/operators/filter';
 
+import { TransactionDTO } from '../models/transaction-dto';
 
 @Injectable()
 export class ValuesService extends BaseService {
@@ -28,7 +29,7 @@ export class ValuesService extends BaseService {
     let __body: any = null;
     let req = new HttpRequest<any>(
       "GET",
-      this.rootUrl + `/api/Values`,
+      this.rootUrl + `/api/Values/Get`,
       __body,
       {
         headers: __headers,
@@ -59,13 +60,13 @@ export class ValuesService extends BaseService {
   /**
    * @return OK
    */
-   Values_UploadFileResponse(): Observable<HttpResponse<{}>> {
+   Values_UploadFileResponse(): Observable<HttpResponse<TransactionDTO[]>> {
     let __params = this.newParams();
     let __headers = new HttpHeaders();
     let __body: any = null;
     let req = new HttpRequest<any>(
       "POST",
-      this.rootUrl + `/api/Values`,
+      this.rootUrl + `/api/Values/UploadFile`,
       __body,
       {
         headers: __headers,
@@ -77,9 +78,9 @@ export class ValuesService extends BaseService {
       filter(_r => _r instanceof HttpResponse),
       map(_r => {
         let _resp = _r as HttpResponse<any>;
-        let _body: {} = null;
-        
-        return _resp.clone({body: _body}) as HttpResponse<{}>;
+        let _body: TransactionDTO[] = null;
+        _body = _resp.body as TransactionDTO[]
+        return _resp.clone({body: _body}) as HttpResponse<TransactionDTO[]>;
       })
     );
   }
@@ -87,7 +88,7 @@ export class ValuesService extends BaseService {
   /**
    * @return OK
    */
-   Values_UploadFile(): Observable<{}> {
+   Values_UploadFile(): Observable<TransactionDTO[]> {
     return this.Values_UploadFileResponse().pipe(
       map(_r => _r.body)
     );

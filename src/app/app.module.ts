@@ -9,8 +9,10 @@ import { AppComponent } from './app.component';
 // Import the Animations module
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-// Import the ButtonsModule
+// Import the Kendo UI Modules
 import { ButtonsModule } from '@progress/kendo-angular-buttons';
+import { GridModule } from '@progress/kendo-angular-grid';
+
 import { NavComponent } from './nav/nav.component';
 import { FooterComponent } from './footer/footer.component';
 
@@ -31,7 +33,7 @@ import { ApiConfiguration } from './api/api-configuration';
     HttpModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    ButtonsModule
+    ButtonsModule, GridModule
   ],
   providers: [ValuesService, ApiConfiguration],
   bootstrap: [AppComponent]
