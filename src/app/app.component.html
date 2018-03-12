@@ -6,5 +6,10 @@
     <button kendoButton (click)="onButtonClick()" [primary]="true">Let's Start</button>
   </div>
 </div>
+<form [formGroup]="uploadForm" (ngSubmit)="onSubmit()">
+  Select file to upload:
+  <input type="file" accept=".csv,.txt" name="transaction" id="fileToUpload" formControlName="fileToUpload" (change)="fileEvent($event)">
+  <input type="submit" value="Upload file" name="submit">
+</form>
 <app-footer></app-footer>
 

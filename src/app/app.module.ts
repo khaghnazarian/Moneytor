@@ -1,7 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
+
 import { AppComponent } from './app.component';
 
 // Import the Animations module
@@ -12,20 +14,26 @@ import { ButtonsModule } from '@progress/kendo-angular-buttons';
 import { NavComponent } from './nav/nav.component';
 import { FooterComponent } from './footer/footer.component';
 
+
+import {ValuesService} from './api/services/values.service';
+import { ApiConfiguration } from './api/api-configuration';
+
 @NgModule({
   declarations: [
     AppComponent,
     NavComponent,
-    FooterComponent
+    FooterComponent    
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpModule,
+    HttpClientModule,
     BrowserAnimationsModule,
     ButtonsModule
   ],
-  providers: [],
+  providers: [ValuesService, ApiConfiguration],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
